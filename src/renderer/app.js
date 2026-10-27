@@ -24,7 +24,7 @@ const COLS = {
   size: { label: () => t('col.size'), w: '96px' },
   status: { label: () => t('col.status'), w: '190px' },
   speed: { label: () => t('col.speed'), w: '96px' },
-  eta: { label: () => t('col.eta'), w: '86px' },
+  eta: { label: () => t('col.eta'), w: '104px' },
   added: { label: () => t('col.added'), w: '128px' },
   desc: { label: () => t('col.desc'), w: '160px' },
 };

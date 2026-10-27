@@ -48,10 +48,10 @@ Electron'a bağımlı değildir (ağ, dosya, saat dışarıdan verilebilir), `no
 
 | Modül | Görevi |
 | --- | --- |
-| `probe.js` | İlk istek: `GET` + `Range: bytes=0-` (gövde ilk bölüm olarak kullanılır). Yönlendirmeleri izler (en çok 10), son adres, boyut, `Accept-Ranges`/`206` ile sürdürme desteği, `ETag`/`Last-Modified`, `Content-Disposition` dosya adı, MIME. |
+| `transport-http.js` | İlk istek (`probe`): `GET` + `Range: bytes=0-`; yeni indirmede bu yanıtın gövdesi ilk bölüm olarak kullanılır. Yönlendirmeler (en çok 10), son adres, `Content-Range`/`206` ile boyut ve sürdürme desteği, `ETag`/`Last-Modified` (sonraki bölüm isteklerinde `If-Range`), `Content-Disposition`, MIME. `open({start,end})` bölüm akışı. |
 | `http.js` | `http`/`https` modülleriyle istek: çerez başlığı, Referer, kullanıcı aracısı, Temel/Digest kimlik doğrulama, HTTP proxy (CONNECT) ve SOCKS5, sistem proxy (Electron `session.resolveProxy` dışarıdan verilir), zaman aşımı, keep-alive havuzu. |
 | `segments.js` | Dinamik bölümleme (saf mantık): başta N bölüm; bir bağlantı bitince **kalan en büyük bölüm ikiye bölünür** ve boşalan bağlantı ikinci yarıyı devralır (bölüm en küçük 256 KB altına inmez). Bölüm durumu `{start, end, done}`. |
-| `task.js` | Tek indirmenin yaşam döngüsü: `queued → connecting → downloading → (paused) → assembling → completed / error`. Her bölüm aynı geçici dosyaya **konumlu yazma** (`FileHandle.write(buf, 0, n, pos)`) yapar; ayrı parça dosyası ve kopyalama yoktur. Bitince dosya tanıtıcısı **kapanması beklenerek** (`await fh.close()`) hedefe taşınır (aynı birimde `rename`, değilse kopyala + doğrula + sil). |
+| `task.js` | Tek indirmenin yaşam döngüsü: `connecting → downloading → (paused) → assembling → completed / error`. Her bölüm geçici klasörde kendi `<bölüm>.part` dosyasına yazar (NTFS'te büyük dosyaya uzak konumdan yazmanın sıfır doldurma beklemesi olmasın diye; IDM de böyle yapar). Bitince **birleştirme**: ilk parça hedef klasöre taşınır, diğerleri sırayla eklenir, boyut doğrulanır, `rename`. Her dosya tanıtıcısı kapanması **beklenerek** kapatılır (`await fh.close()`), sonra taşınır/silinir; Windows'ta geçici kilitlere karşı `rename` birkaç kez denenir. |
 | `retry.js` | Bağlantı kopması / 5xx / zaman aşımı: bölüm bazında üstel bekleme (1, 2, 4… en çok 30 sn), ayarlanabilir deneme sayısı (varsayılan 20). 4xx kalıcı hatadır (401/403/404/410 → “bağlantı yenile” önerisi). |
 | `throttle.js` | Belirteç kovası: genel sınır + indirme başına sınır; bağlantılar arasında adil paylaşım. |
 | `transport-ftp.js` | FTP (bağımlılıksız küçük istemci, task.js taşıyıcı arayüzü): USER/PASS (adresteki kimlik ya da anonymous), `TYPE I`, EPSV → PASV yedeği, `SIZE`, `MDTM`, `REST` + `RETR` ile her bölüm ayrı oturumda (çok bağlantı, sürdürme); akış kapanınca `ABOR` + `QUIT`. FTPS sonra. |
@@ -64,7 +64,7 @@ Electron'a bağımlı değildir (ağ, dosya, saat dışarıdan verilebilir), `no
 | `grabber.js` | Site yakalayıcı: başlangıç adresi, derinlik, aynı alan / alt klasör sınırı, uzantı/MIME filtreleri, en çok sayfa; HTML'den `a/img/source/link` adresleri; robots.txt'ye uyar. |
 | `ef2.js` | IDM `.ef2` içe/dışa aktarma ve düz metin liste. |
 | `filename.js` | Dosya adı: `Content-Disposition` (RFC 5987/6266), adres, MIME'dan uzantı; Windows'a yasak karakter/ad temizliği; yinelenen adda `ad (2).ext` / üzerine yaz / sor. |
-| `store.js` | Kalıcı liste: `%APPDATA%\Master Download\downloads.json` (geçici dosya + rename ile atomik); bölüm ilerlemesi geçici klasörde `<id>.mdstate` (2 sn'de bir), uygulama çökse de kaldığı yerden sürer. |
+| `manager.js` | Kalıcı liste: `%APPDATA%\Master Download\downloads.json` (geçici dosya + rename); bölüm durumu geçici klasörde `<id>/state.json` (1 sn'de bir), `pos` diskteki parça boyutundan hesaplanır — uygulama çökse de kaldığı yerden sürer. Görev başlatma/durdurma, kategori klasörü, yinelenen ad, kuyruk bağlantısı, bağlantı yenileme, şifreli çerez/kimlik (`safeStorage`). |
 
 Sürdürme: sunucu `206` vermiyorsa ya da `ETag`/`Last-Modified`/boyut değiştiyse indirme “sürdürülemez” işaretlenir;
 duraklatmada kullanıcı uyarılır (IDM'deki “sürdürme yeteneği: Hayır”), yeniden başlatmada baştan iner.
@@ -146,7 +146,7 @@ Convert Master/Master Tool'daki `src/sso.js` ve `src/account.js` uyarlanır (sen
 kesinti enjeksiyonu, yönlendirme, çerez/kimlik doğrulama kontrolü, yavaş yanıt, değişen ETag) ve küçük bir FTP sunucusu.
 
 - çok parçalı indirme + birleştirme (SHA-256 eşitliği), dinamik bölme (biten bağlantı en büyük parçayı devralır)
-- duraklat/sürdür (Range), uygulama yeniden başlamış gibi `.mdstate`'ten sürdürme, sürdürme desteklenmeyen sunucu
+- duraklat/sürdür (Range), uygulama yeniden başlamış gibi `state.json`'dan sürdürme, sürdürme desteklenmeyen sunucu
 - bağlantı kopması → yeniden deneme, kalıcı 404, değişen ETag
 - hız sınırı (ölçülen hız ±%25), kuyruk eşzamanlılığı, zamanlayıcı (sahte saat), bitince eylem
 - kategori kuralları, dosya adı temizliği, yinelenen ad, toplu kalıp, `.ef2` gidiş-dönüş, komut satırı ayrıştırma

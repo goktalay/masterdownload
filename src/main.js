@@ -417,7 +417,7 @@ function hideToTray() {
 function openProgress(id) {
   if (progressWins.has(id)) { const w = progressWins.get(id); w.show(); w.focus(); return; }
   const w = new BrowserWindow({
-    width: 560, height: 430, resizable: true, minWidth: 480, minHeight: 380, maximizable: false,
+    width: 620, height: 500, resizable: true, minWidth: 520, minHeight: 420, maximizable: false,
     backgroundColor: windowBg(), title: 'Master Download', icon: ICON, autoHideMenuBar: true, webPreferences: webPrefs(),
   });
   w.setMenuBarVisibility(false);

@@ -1,0 +1,110 @@
+[
+  {
+    "file": "01-indirmeler-gece.png",
+    "theme": "dark",
+    "title": "Downloads",
+    "caption": "Categories, queues, speed and time left; segment map of the selected download"
+  },
+  {
+    "file": "02-yeni-indirme-gece.png",
+    "theme": "dark",
+    "title": "New download",
+    "caption": "Address, file name, category folder, queue and connections; now or later"
+  },
+  {
+    "file": "03-ilerleme-gece.png",
+    "theme": "dark",
+    "title": "Download progress window",
+    "caption": "8 connections at once: segment map, connection table, per-file speed limit"
+  },
+  {
+    "file": "04-kuyruklar-gece.png",
+    "theme": "dark",
+    "title": "Queues and scheduler",
+    "caption": "Start/stop time, days, simultaneous downloads; sleep or shut down when done"
+  },
+  {
+    "file": "05-site-yakalayici-gece.png",
+    "theme": "dark",
+    "title": "Site grabber",
+    "caption": "Collects files of chosen types from a site; follows robots.txt rules"
+  },
+  {
+    "file": "06-toplu-indirme-gece.png",
+    "theme": "dark",
+    "title": "Batch download",
+    "caption": "Numbered files with a wildcard pattern: file*.zip, 1–50, 3 digits"
+  },
+  {
+    "file": "07-ayarlar-baglanti-gece.png",
+    "theme": "dark",
+    "title": "Settings › Connection",
+    "caption": "Connections, retries, timeout, user agent and proxy"
+  },
+  {
+    "file": "08-ayarlar-tarayici-gece.png",
+    "theme": "dark",
+    "title": "Settings › Browser integration",
+    "caption": "Chrome, Edge and Firefox extension: captures downloads, video button"
+  },
+  {
+    "file": "09-giris-gece.png",
+    "theme": "dark",
+    "title": "Single sign-on",
+    "caption": "Sign in once with your Mastertool account; the other apps won’t ask again"
+  },
+  {
+    "file": "01-indirmeler-gunduz.png",
+    "theme": "light",
+    "title": "Downloads",
+    "caption": "Categories, queues, speed and time left; segment map of the selected download"
+  },
+  {
+    "file": "02-yeni-indirme-gunduz.png",
+    "theme": "light",
+    "title": "New download",
+    "caption": "Address, file name, category folder, queue and connections; now or later"
+  },
+  {
+    "file": "03-ilerleme-gunduz.png",
+    "theme": "light",
+    "title": "Download progress window",
+    "caption": "8 connections at once: segment map, connection table, per-file speed limit"
+  },
+  {
+    "file": "04-kuyruklar-gunduz.png",
+    "theme": "light",
+    "title": "Queues and scheduler",
+    "caption": "Start/stop time, days, simultaneous downloads; sleep or shut down when done"
+  },
+  {
+    "file": "05-site-yakalayici-gunduz.png",
+    "theme": "light",
+    "title": "Site grabber",
+    "caption": "Collects files of chosen types from a site; follows robots.txt rules"
+  },
+  {
+    "file": "06-toplu-indirme-gunduz.png",
+    "theme": "light",
+    "title": "Batch download",
+    "caption": "Numbered files with a wildcard pattern: file*.zip, 1–50, 3 digits"
+  },
+  {
+    "file": "07-ayarlar-baglanti-gunduz.png",
+    "theme": "light",
+    "title": "Settings › Connection",
+    "caption": "Connections, retries, timeout, user agent and proxy"
+  },
+  {
+    "file": "08-ayarlar-tarayici-gunduz.png",
+    "theme": "light",
+    "title": "Settings › Browser integration",
+    "caption": "Chrome, Edge and Firefox extension: captures downloads, video button"
+  },
+  {
+    "file": "09-giris-gunduz.png",
+    "theme": "light",
+    "title": "Single sign-on",
+    "caption": "Sign in once with your Mastertool account; the other apps won’t ask again"
+  }
+]

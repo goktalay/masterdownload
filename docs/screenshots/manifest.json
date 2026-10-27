@@ -1,0 +1,110 @@
+[
+  {
+    "file": "01-indirmeler-gece.png",
+    "theme": "dark",
+    "title": "İndirmeler",
+    "caption": "Kategoriler, kuyruklar, hız ve kalan süre; seçili indirmenin bölüm haritası"
+  },
+  {
+    "file": "02-yeni-indirme-gece.png",
+    "theme": "dark",
+    "title": "Yeni indirme",
+    "caption": "Adres, dosya adı, kategori klasörü, kuyruk ve bağlantı sayısı; şimdi ya da sonra"
+  },
+  {
+    "file": "03-ilerleme-gece.png",
+    "theme": "dark",
+    "title": "İndirme ilerleme penceresi",
+    "caption": "8 bağlantı aynı anda: bölüm haritası, bağlantı tablosu, dosya başına hız sınırı"
+  },
+  {
+    "file": "04-kuyruklar-gece.png",
+    "theme": "dark",
+    "title": "Kuyruklar ve zamanlayıcı",
+    "caption": "Başlama/durma saati, günler, eşzamanlı indirme; bitince uyku ya da kapat"
+  },
+  {
+    "file": "05-site-yakalayici-gece.png",
+    "theme": "dark",
+    "title": "Site yakalayıcı",
+    "caption": "Bir siteden belirli türdeki dosyaları toplar; robots.txt kurallarına uyar"
+  },
+  {
+    "file": "06-toplu-indirme-gece.png",
+    "theme": "dark",
+    "title": "Toplu indirme",
+    "caption": "Joker kalıpla numaralı dosyalar: dosya*.zip, 1–50, 3 basamak"
+  },
+  {
+    "file": "07-ayarlar-baglanti-gece.png",
+    "theme": "dark",
+    "title": "Ayarlar › Bağlantı",
+    "caption": "Bağlantı sayısı, yeniden deneme, zaman aşımı, kullanıcı aracısı ve proxy"
+  },
+  {
+    "file": "08-ayarlar-tarayici-gece.png",
+    "theme": "dark",
+    "title": "Ayarlar › Tarayıcı bütünleşmesi",
+    "caption": "Chrome, Edge ve Firefox eklentisi: indirmeleri yakalar, video düğmesi"
+  },
+  {
+    "file": "09-giris-gece.png",
+    "theme": "dark",
+    "title": "Tek giriş",
+    "caption": "Mastertool hesabıyla bir kez girin; ailenin diğer uygulamaları yeniden sormaz"
+  },
+  {
+    "file": "01-indirmeler-gunduz.png",
+    "theme": "light",
+    "title": "İndirmeler",
+    "caption": "Kategoriler, kuyruklar, hız ve kalan süre; seçili indirmenin bölüm haritası"
+  },
+  {
+    "file": "02-yeni-indirme-gunduz.png",
+    "theme": "light",
+    "title": "Yeni indirme",
+    "caption": "Adres, dosya adı, kategori klasörü, kuyruk ve bağlantı sayısı; şimdi ya da sonra"
+  },
+  {
+    "file": "03-ilerleme-gunduz.png",
+    "theme": "light",
+    "title": "İndirme ilerleme penceresi",
+    "caption": "8 bağlantı aynı anda: bölüm haritası, bağlantı tablosu, dosya başına hız sınırı"
+  },
+  {
+    "file": "04-kuyruklar-gunduz.png",
+    "theme": "light",
+    "title": "Kuyruklar ve zamanlayıcı",
+    "caption": "Başlama/durma saati, günler, eşzamanlı indirme; bitince uyku ya da kapat"
+  },
+  {
+    "file": "05-site-yakalayici-gunduz.png",
+    "theme": "light",
+    "title": "Site yakalayıcı",
+    "caption": "Bir siteden belirli türdeki dosyaları toplar; robots.txt kurallarına uyar"
+  },
+  {
+    "file": "06-toplu-indirme-gunduz.png",
+    "theme": "light",
+    "title": "Toplu indirme",
+    "caption": "Joker kalıpla numaralı dosyalar: dosya*.zip, 1–50, 3 basamak"
+  },
+  {
+    "file": "07-ayarlar-baglanti-gunduz.png",
+    "theme": "light",
+    "title": "Ayarlar › Bağlantı",
+    "caption": "Bağlantı sayısı, yeniden deneme, zaman aşımı, kullanıcı aracısı ve proxy"
+  },
+  {
+    "file": "08-ayarlar-tarayici-gunduz.png",
+    "theme": "light",
+    "title": "Ayarlar › Tarayıcı bütünleşmesi",
+    "caption": "Chrome, Edge ve Firefox eklentisi: indirmeleri yakalar, video düğmesi"
+  },
+  {
+    "file": "09-giris-gunduz.png",
+    "theme": "light",
+    "title": "Tek giriş",
+    "caption": "Mastertool hesabıyla bir kez girin; ailenin diğer uygulamaları yeniden sormaz"
+  }
+]
