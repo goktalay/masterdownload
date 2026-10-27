@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+  <title>Master Download</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img src="../../build/icon.png" alt="">
+        <div>
+          <div class="brand-name">Master Download</div>
+          <div class="brand-sub" id="stats"></div>
+        </div>
+      </div>
+      <div class="tools" id="tools"></div>
+      <span class="grow"></span>
+      <div class="actions">
+        <button class="btn ghost" id="btnSettings"></button>
+        <button class="account-chip" id="btnAccount"><span class="ac-avatar"></span><span class="ac-name"></span></button>
+        <span id="portal"></span>
+      </div>
+    </header>
+
+    <div class="update-bar hidden" id="updateBar"></div>
+    <div class="after-bar hidden" id="afterBar"></div>
+
+    <div class="main">
+      <aside class="side" id="side"></aside>
+      <section class="listpane">
+        <div class="list-head">
+          <div class="list-title" id="listTitle"></div>
+          <div class="search"><span id="searchIcon"></span><input class="input" id="search" type="search" spellcheck="false"></div>
+        </div>
+        <div class="table-wrap" id="tableWrap">
+          <table class="dl-table" id="table">
+            <thead><tr id="thead"></tr></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+          <div class="empty hidden" id="empty"></div>
+        </div>
+        <div class="details hidden" id="details"></div>
+      </section>
+    </div>
+    <div class="drop-overlay hidden" id="dropOverlay"></div>
+  </div>
+
+  <script src="../i18n.js"></script>
+  <script src="ui.js"></script>
+  <script src="dialogs.js"></script>
+  <script src="settings.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
