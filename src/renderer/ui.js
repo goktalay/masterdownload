@@ -67,3 +67,132 @@ const ICONS = {
   wifi: '<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/>',
   tag: '<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
 };
+
+function icon(name, cls = '') {
+  return `<svg class="i ${cls}" viewBox="0 0 24 24">${ICONS[name] || ''}</svg>`;
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// LRI…PDI: sağdan sola dillerde "40 MB" ters ("MB 40") görünmesin
+const ltr = (s) => `⁦${s}⁩`;
+
+function formatSize(n) {
+  if (n == null) return '';
+  const u = ['B', 'KB', 'MB', 'GB', 'TB'];
+  let i = 0;
+  while (n >= 1024 && i < u.length - 1) { n /= 1024; i++; }
+  const frac = n < 10 && i ? 1 : 0;
+  return ltr(`${n.toLocaleString(LANG, { minimumFractionDigits: frac, maximumFractionDigits: frac })} ${u[i]}`);
+}
+
+// "45,2 / 98,1 MB" — iki sayı aynı birimde
+function formatProgress(received, total) {
+  const mb = (n) => (n / 1048576).toLocaleString(LANG, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return ltr(total ? `${mb(received)} / ${mb(total)} MB` : `${mb(received)} MB`);
+}
+
+function h(html) {
+  const tpl = document.createElement('template');
+  tpl.innerHTML = html.trim();
+  return tpl.content.firstElementChild;
+}
+
+// --- Bağlam menüsü ------------------------------------------------------------
+let activeCtx = null;
+function closeContextMenu() {
+  if (activeCtx) { activeCtx.remove(); activeCtx = null; }
+}
+function contextMenu(x, y, items) {
+  closeContextMenu();
+  const menu = h('<div class="ctx"></div>');
+  for (const it of items) {
+    if (it === '-') { menu.appendChild(h('<hr>')); continue; }
+    if (!it) continue;
+    const b = h(`<button class="${it.danger ? 'danger' : ''}">${it.img ? `<img class="ctx-img" src="${esc(it.img)}" alt="">` : it.icon ? icon(it.icon) : ''}<span>${esc(it.label)}</span></button>`);
+    if (it.disabled) b.disabled = true;
+    b.addEventListener('click', () => { closeContextMenu(); it.action(); });
+    menu.appendChild(b);
+  }
+  document.body.appendChild(menu);
+  const r = menu.getBoundingClientRect();
+  menu.style.left = Math.max(6, Math.min(x, innerWidth - r.width - 6)) + 'px';
+  menu.style.top = Math.min(y, innerHeight - r.height - 6) + 'px';
+  activeCtx = menu;
+}
+window.addEventListener('mousedown', (e) => { if (activeCtx && !activeCtx.contains(e.target)) closeContextMenu(); }, true);
+window.addEventListener('blur', closeContextMenu);
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContextMenu(); });
+
+// --- Bildirimler --------------------------------------------------------------
+function toastHost() {
+  let el = document.querySelector('.toasts');
+  if (!el) { el = h('<div class="toasts"></div>'); document.body.appendChild(el); }
+  return el;
+}
+function toast(title, { type = '', sub = '', timeout = 4000 } = {}) {
+  const el = h(`<div class="toast ${type}"><div class="t-body"><div class="t-title">${esc(title)}</div>${sub ? `<div class="t-sub">${esc(sub)}</div>` : ''}</div></div>`);
+  toastHost().appendChild(el);
+  if (timeout) setTimeout(() => el.remove(), timeout);
+  return el;
+}
+
+// --- Modal --------------------------------------------------------------------
+function openModal({ title, iconName, body, buttons = [], width, onMount }) {
+  return new Promise((resolve) => {
+    const back = h('<div class="modal-backdrop"></div>');
+    const modal = h(`<div class="modal">
+      <header>${iconName ? `<span style="color:var(--accent)">${icon(iconName)}</span>` : ''}<h2>${esc(title)}</h2></header>
+      <div class="body"></div><footer><span class="spacer"></span></footer></div>`);
+    if (width) modal.style.width = `min(${width}px, calc(100vw - 32px))`;
+    const bodyEl = modal.querySelector('.body');
+    if (typeof body === 'string') bodyEl.innerHTML = body; else bodyEl.appendChild(body);
+    const footer = modal.querySelector('footer');
+    const close = (val) => { back.remove(); document.removeEventListener('keydown', onKey); resolve(val); };
+    for (const b of buttons) {
+      const btn = h(`<button class="btn ${b.cls || ''}">${b.icon ? icon(b.icon) : ''}${esc(b.label)}</button>`);
+      btn.addEventListener('click', async () => {
+        if (b.onClick) {
+          const r = await b.onClick(modal, btn);
+          if (r === false) return;
+          close(r === undefined ? b.value : r);
+        } else close(b.value);
+      });
+      if (b.left) footer.insertBefore(btn, footer.querySelector('.spacer')); else footer.appendChild(btn);
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') close(null);
+      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+        const primary = [...footer.querySelectorAll('.btn.primary')].pop();
+        if (primary) { e.preventDefault(); primary.click(); }
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    back.addEventListener('mousedown', (e) => { if (e.target === back) close(null); });
+    back.appendChild(modal);
+    document.body.appendChild(back);
+    if (onMount) onMount(modal, close);
+  });
+}
+
+async function confirmBox(title, message, { okText = t('common.ok'), cancelText = t('common.cancel'), danger = true, iconName } = {}) {
+  return openModal({
+    title, iconName: iconName || (danger ? 'trash' : 'check'),
+    body: `<div style="color:var(--text-2);line-height:1.5">${message}</div>`,
+    buttons: [
+      { label: cancelText, value: false },
+      { label: okText, cls: danger ? 'primary danger-primary' : 'primary', value: true },
+    ],
+  });
+}
+
+// --- mastertool.download bağlantısı (sağ üst köşe) ---------------------------------
+// Adres (dil ve o anki tema) ana süreçte kurulur; varsayılan tarayıcıda açılır.
+function portalLink() {
+  const b = h(`<button type="button" class="mt-link" title="mastertool.download">
+    <img src="../../assets/brand/mt.svg" alt=""><span>mastertool.download</span>${icon('arrowUpRight')}</button>`);
+  b.addEventListener('click', () => window.api.openPortal());
+  return b;
+}

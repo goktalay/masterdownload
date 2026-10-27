@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+  <title>Master Download</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; user-select: none; }
+    /* Bırakma hedefi: sürüklenerek taşınır (-webkit-app-region), bırakılan bağlantı Yeni indirme açar */
+    .ball {
+      position: absolute; inset: 6px; border-radius: 50%; display: grid; place-items: center; -webkit-app-region: drag;
+      background: radial-gradient(circle at 30% 25%, #2a3550, #0b0f17 70%); border: 2px solid rgba(34, 211, 238, .55);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .45); transition: transform .12s, border-color .12s;
+    }
+    .ball img { width: 34px; height: 34px; pointer-events: none; }
+    .ball.over { transform: scale(1.12); border-color: #22d3ee; box-shadow: 0 0 0 4px rgba(34, 211, 238, .25), 0 6px 18px rgba(0, 0, 0, .45); }
+  </style>
+</head>
+<body>
+  <div class="ball" id="ball"><img src="../../build/icon.png" alt=""></div>
+  <script src="drop.js"></script>
+</body>
+</html>

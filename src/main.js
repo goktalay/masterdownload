@@ -507,10 +507,15 @@ function createTray() {
 let account = null;
 let loginNotice = '';
 
+// Ortak kimlik deposu (Windows Kimlik Bilgisi Yöneticisi) açılamazsa uygulama yalnız kendi oturumuyla çalışır
+function openSso() {
+  try { return createSso({ stateDir: path.join(app.getPath('appData'), 'Mastertool') }); } catch { return null; }
+}
+
 function initAccount() {
   account = createAccount({
     userDataDir: app.getPath('userData'), appVersion: app.getVersion(), encrypt, decrypt,
-    sso: createSso({ stateDir: path.join(app.getPath('appData'), 'Mastertool') }),
+    sso: openSso(),
     onStatus: (st) => send('account:state', st),
     onSessionExpired: (code) => {
       manager && manager.pauseAll();
