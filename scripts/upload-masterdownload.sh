@@ -31,6 +31,10 @@ if [ -z "${MD_RELEASE_KEY:-}" ]; then
   echo "::warning::MD_RELEASE_KEY tanımlı değil; mastertool.download'a yükleme atlandı."
   exit 0
 fi
+# Secret'a yapıştırırken gelen boşluk/satır sonu sunucudaki birebir karşılaştırmayı bozmasın
+MD_RELEASE_KEY=$(printf '%s' "$MD_RELEASE_KEY" | tr -d '\r\n\t ')
+# Anahtarın kendisi yazdırılmaz; sunucudakiyle karşılaştırmak için sha256 parmak izinin ilk 8 karakteri
+echo "Anahtar parmak izi: $(printf '%s' "$MD_RELEASE_KEY" | sha256sum | cut -c1-8) (${#MD_RELEASE_KEY} karakter)"
 
 # Dosyayı ≤ PART_BYTES parçalar halinde sırayla gönderir; son HTTP kodunu yazdırır
 post_parts() { # post_parts <url> <dosya> <dosya adı> [ek -F argümanları...]
