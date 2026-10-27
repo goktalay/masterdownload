@@ -38,7 +38,7 @@ test('çok parçalı indirme ve birleştirme: içerik birebir aynı', async () =
 
 test('dinamik bölme: biten bağlantı en büyük kalanı devralır', async () => {
   const size = 600 * 1024;
-  const { task } = makeTask(`${srv.base}/slow/b.bin?size=${size}&bps=400000`, { connections: 4, id: 'split' });
+  const { task } = makeTask(`${srv.base}/skew/b.bin?size=${size}&bps=100000`, { connections: 4, id: 'split' });
   await task.start();
   assert.strictEqual(task.status, 'completed', task.error && task.error.message);
   assert.ok(task.segments.length > 4, `bölüm sayısı ${task.segments.length}`);

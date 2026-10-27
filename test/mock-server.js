@@ -57,7 +57,7 @@ function createMock() {
   return { server, state };
 }
 
-if (require.main === module) {
+if (require.main === module && process.argv[2]) {
   const port = Number(process.argv[2]) || 8787;
   createMock().server.listen(port, '127.0.0.1', () => console.log(`mock /api/md http://127.0.0.1:${port}`));
 }

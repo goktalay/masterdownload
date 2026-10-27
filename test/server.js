@@ -5,6 +5,7 @@
 //   /norange/<ad>?size=N         Range yok sayılır (200 + tamamı)
 //   /flaky/<ad>?size=N&cut=K     her yanıt K bayt sonra kopar (ilk 'fails' istek), sonra düzgün
 //   /slow/<ad>?size=N&bps=B      yavaş gönderim
+//   /skew/<ad>?size=N&bps=B      0'dan başlayan aralık hızlı, diğerleri yavaş
 //   /redirect?to=<yol>           302
 //   /cookie/<ad>?size=N          Cookie: sid=ok yoksa 403
 //   /basic/<ad>?size=N           Temel kimlik doğrulama (u:p)
@@ -78,6 +79,11 @@ function startServer() {
     }
     if (p.startsWith('/file/')) return sendRange(req, res, body(size));
     if (p.startsWith('/norange/')) return sendRange(req, res, body(size), { range: false });
+    if (p.startsWith('/skew/')) {
+      // İlk bölüm (0'dan başlayan) hızlı, diğerleri yavaş: biten bağlantının devralmasını belirlenimci sınar
+      const fromZero = !req.headers.range || /bytes=0-/.test(req.headers.range);
+      return sendRange(req, res, body(size), { bps: fromZero ? 0 : Number(u.searchParams.get('bps')) });
+    }
     if (p.startsWith('/slow/')) return sendRange(req, res, body(size), { bps: Number(u.searchParams.get('bps')) });
     if (p.startsWith('/flaky/')) {
       const key = p;
