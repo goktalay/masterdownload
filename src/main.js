@@ -231,6 +231,7 @@ setInterval(() => {
 // ---------------------------------------------------------------------------
 const pendingAdds = []; // giriş yapılmadan gelen istekler
 let addSeq = 0;
+const recentAdds = new Map(); // adres → zaman
 
 // req: { url, referrer, cookies, ua, filename, size, mime, kind, pageUrl, title, dir, silent, start, queue }
 function requestAdd(req) {
@@ -241,6 +242,11 @@ function requestAdd(req) {
   }
   const url = String(req.url || '').trim();
   if (!/^(https?|ftp):\/\//i.test(url)) return { ok: false, code: 'invalid_url' };
+  // Eklenti uygulamayı başlatırken zaman aşımına uğrayıp aynı adresi yeniden gönderebilir: 30 sn içinde yinelenen istek yok sayılır
+  const now = Date.now();
+  for (const [u, at] of recentAdds) if (now - at > 30000) recentAdds.delete(u);
+  if (recentAdds.has(url)) return { ok: true, duplicate: true };
+  recentAdds.set(url, now);
   const silent = req.silent || !store.settings.downloads.showStartDialog;
   if (silent) {
     const it = manager.add({ ...req, url, fileName: req.filename || req.fileName, start: req.start !== false && !req.queue });

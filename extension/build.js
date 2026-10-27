@@ -3,7 +3,7 @@
 // Eklenti derleme: tek kaynak (extension/src) → iki paketlenmemiş eklenti
 //   dist/chromium/  Chrome/Edge (MV3, background.service_worker)
 //   dist/firefox/   Firefox 115+ (MV3, background.scripts, browser_specific_settings.gecko.id)
-// extension/key.pem varsa açık anahtarı Chromium manifestine "key" olarak yazılır (sabit eklenti kimliği).
+// extension/key.pem (yoksa depodaki açık anahtar key.pub.pem) varsa açık anahtarı Chromium manifestine "key" olarak yazılır (sabit eklenti kimliği).
 // Kullanım: node extension/build.js [--out <klasör>] [--key <pem>]
 
 const fs = require('fs');
@@ -77,7 +77,7 @@ function copyDir(from, to) {
   }
 }
 
-function build({ out = path.join(__dirname, 'dist'), keyPath = path.join(__dirname, 'key.pem'), log = () => {} } = {}) {
+function build({ out = path.join(__dirname, 'dist'), keyPath = fs.existsSync(path.join(__dirname, 'key.pem')) ? path.join(__dirname, 'key.pem') : path.join(__dirname, 'key.pub.pem'), log = () => {} } = {}) {
   // Simgeler kaynakta yoksa üret
   if (!fs.existsSync(path.join(SRC, 'icons', 'icon-128.png'))) writeIcons(path.join(SRC, 'icons'));
 

@@ -77,7 +77,12 @@ function unregisterCommands() {
   return Object.values(REG_KEYS).map((k) => ['delete', k, '/f']);
 }
 
+// Paketlenmemiş yüklemede ve geliştirmede extension/key.pub.pem'den türeyen sabit kimlik.
+// Chrome Web Store / Edge Add-ons kimlikleri yayından sonra buraya eklenir.
+const CHROMIUM_IDS = ['doojolmfgjleghmllifhjkejconbfkgb'];
+
 module.exports = {
+  CHROMIUM_IDS,
   HOST_NAME, FIREFOX_ID, CMD_NAME, MANIFEST_FILES, REG_KEYS,
   hostManifest, cmdContent, writeHostFiles, registryCommands, unregisterCommands, isChromiumId,
 };
