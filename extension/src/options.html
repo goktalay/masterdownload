@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Master Download</title>
+<link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <header>
+    <img src="icons/icon-48.png" width="32" height="32" alt="">
+    <h1 data-i18n="optionsTitle"></h1>
+  </header>
+  <form id="f">
+    <label class="check"><input type="checkbox" id="enabled"> <span data-i18n="optEnabled"></span></label>
+    <p class="hint" data-i18n="optEnabledHint"></p>
+
+    <label for="exts" data-i18n="optExts"></label>
+    <textarea id="exts" rows="4" spellcheck="false"></textarea>
+    <p class="hint" data-i18n="optExtsHint"></p>
+
+    <label for="minSizeKB" data-i18n="optMinSize"></label>
+    <input type="number" id="minSizeKB" min="0" step="1">
+
+    <label for="skipSites" data-i18n="optSkipSites"></label>
+    <textarea id="skipSites" rows="4" spellcheck="false" placeholder="example.com&#10;*.cdn.example.net"></textarea>
+    <p class="hint" data-i18n="optSkipSitesHint"></p>
+
+    <label class="check"><input type="checkbox" id="videoButton"> <span data-i18n="optVideoButton"></span></label>
+    <p class="hint" data-i18n="optVideoButtonHint"></p>
+
+    <div class="actions">
+      <button type="submit" data-i18n="optSave"></button>
+      <button type="button" id="reset" class="ghost" data-i18n="optReset"></button>
+      <button type="button" id="ping" class="ghost" data-i18n="optTest"></button>
+      <span id="msg" class="msg"></span>
+    </div>
+  </form>
+  <script src="rules.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

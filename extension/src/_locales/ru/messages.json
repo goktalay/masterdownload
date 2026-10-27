@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "Скачивайте файлы и видео со страницы через Master Download — быстро и с докачкой."
+  },
+  "menuLink": {
+    "message": "Скачать через Master Download"
+  },
+  "menuAll": {
+    "message": "Скачать все ссылки через Master Download"
+  },
+  "menuMedia": {
+    "message": "Скачать это видео/аудио через Master Download"
+  },
+  "btnDownload": {
+    "message": "Скачать"
+  },
+  "btnDownloadTitle": {
+    "message": "Скачать это видео через Master Download"
+  },
+  "kindFile": {
+    "message": "Файл"
+  },
+  "loading": {
+    "message": "Загрузка…"
+  },
+  "sending": {
+    "message": "Отправка…"
+  },
+  "sentOk": {
+    "message": "Отправлено в Master Download"
+  },
+  "noMedia": {
+    "message": "На этой странице не найдено видео или аудио для скачивания. Начните воспроизведение и повторите попытку."
+  },
+  "noLinks": {
+    "message": "На странице не найдено ссылок для скачивания."
+  },
+  "errBlocked": {
+    "message": "Этот контент защищён или условия сайта запрещают скачивание; Master Download не будет его скачивать."
+  },
+  "errAppUnavailable": {
+    "message": "Master Download не отвечает. Убедитесь, что приложение установлено и вы вошли в аккаунт."
+  },
+  "errGeneric": {
+    "message": "Master Download отклонил запрос ($CODE$).",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "Загрузка передана браузеру"
+  },
+  "notifyFallbackBody": {
+    "message": "Файл скачивается встроенным загрузчиком браузера."
+  },
+  "popupMediaTitle": {
+    "message": "Медиа, найденные на этой вкладке"
+  },
+  "popupAllLinks": {
+    "message": "Скачать все ссылки"
+  },
+  "statusConnected": {
+    "message": "Master Download подключён"
+  },
+  "optionsTitle": {
+    "message": "Параметры"
+  },
+  "optEnabled": {
+    "message": "Перехватывать загрузки браузера через Master Download"
+  },
+  "optEnabledHint": {
+    "message": "Удерживайте Alt при щелчке, чтобы скачал браузер; Ctrl — чтобы принудительно использовать Master Download."
+  },
+  "optExts": {
+    "message": "Расширения файлов для перехвата"
+  },
+  "optExtsHint": {
+    "message": "Разделяйте пробелами или запятыми (например, zip exe mp4)."
+  },
+  "optMinSize": {
+    "message": "Минимальный размер файла (КБ)"
+  },
+  "optSkipSites": {
+    "message": "Исключённые сайты"
+  },
+  "optSkipSitesHint": {
+    "message": "По одному сайту в строке; допускается шаблон * (например, *.example.com)."
+  },
+  "optVideoButton": {
+    "message": "Показывать кнопку «Скачать» на видео"
+  },
+  "optVideoButtonHint": {
+    "message": "Кнопка не показывается в защищённых (DRM) плеерах и на сайтах, условия которых запрещают скачивание."
+  },
+  "optSave": {
+    "message": "Сохранить"
+  },
+  "optReset": {
+    "message": "По умолчанию"
+  },
+  "optTest": {
+    "message": "Проверить соединение"
+  },
+  "optSaved": {
+    "message": "Сохранено"
+  }
+}

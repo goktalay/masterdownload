@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "使用 Master Download 下载文件和页面视频——快速且可续传。"
+  },
+  "menuLink": {
+    "message": "使用 Master Download 下载"
+  },
+  "menuAll": {
+    "message": "使用 Master Download 下载所有链接"
+  },
+  "menuMedia": {
+    "message": "使用 Master Download 下载此视频/音频"
+  },
+  "btnDownload": {
+    "message": "下载"
+  },
+  "btnDownloadTitle": {
+    "message": "使用 Master Download 下载此视频"
+  },
+  "kindFile": {
+    "message": "文件"
+  },
+  "loading": {
+    "message": "正在加载…"
+  },
+  "sending": {
+    "message": "正在发送…"
+  },
+  "sentOk": {
+    "message": "已发送到 Master Download"
+  },
+  "noMedia": {
+    "message": "此页面未检测到可下载的视频或音频。请开始播放后重试。"
+  },
+  "noLinks": {
+    "message": "页面上未找到可下载的链接。"
+  },
+  "errBlocked": {
+    "message": "此内容受保护或网站条款不允许下载；Master Download 不会下载它。"
+  },
+  "errAppUnavailable": {
+    "message": "Master Download 无响应。请确认已安装该应用并已登录。"
+  },
+  "errGeneric": {
+    "message": "Master Download 拒绝了该请求（$CODE$）。",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "下载已交还浏览器"
+  },
+  "notifyFallbackBody": {
+    "message": "该文件正在由浏览器自身下载。"
+  },
+  "popupMediaTitle": {
+    "message": "此标签页中检测到的媒体"
+  },
+  "popupAllLinks": {
+    "message": "下载所有链接"
+  },
+  "statusConnected": {
+    "message": "Master Download 已连接"
+  },
+  "optionsTitle": {
+    "message": "选项"
+  },
+  "optEnabled": {
+    "message": "用 Master Download 接管浏览器下载"
+  },
+  "optEnabledHint": {
+    "message": "单击时按住 Alt 由浏览器下载；按住 Ctrl 强制使用 Master Download。"
+  },
+  "optExts": {
+    "message": "要接管的文件扩展名"
+  },
+  "optExtsHint": {
+    "message": "用空格或逗号分隔（例如 zip exe mp4）。"
+  },
+  "optMinSize": {
+    "message": "最小文件大小（KB）"
+  },
+  "optSkipSites": {
+    "message": "排除的网站"
+  },
+  "optSkipSitesHint": {
+    "message": "每行一个网站；可使用 * 通配符（例如 *.example.com）。"
+  },
+  "optVideoButton": {
+    "message": "在视频上显示“下载”按钮"
+  },
+  "optVideoButtonHint": {
+    "message": "受保护（DRM）的播放器以及条款禁止下载的网站上不显示该按钮。"
+  },
+  "optSave": {
+    "message": "保存"
+  },
+  "optReset": {
+    "message": "恢复默认"
+  },
+  "optTest": {
+    "message": "测试连接"
+  },
+  "optSaved": {
+    "message": "已保存"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "نزّل الملفات ومقاطع الفيديو في الصفحة باستخدام Master Download بسرعة ومع إمكانية الاستئناف."
+  },
+  "menuLink": {
+    "message": "التنزيل باستخدام Master Download"
+  },
+  "menuAll": {
+    "message": "تنزيل جميع الروابط باستخدام Master Download"
+  },
+  "menuMedia": {
+    "message": "تنزيل هذا الفيديو/الصوت باستخدام Master Download"
+  },
+  "btnDownload": {
+    "message": "تنزيل"
+  },
+  "btnDownloadTitle": {
+    "message": "تنزيل هذا الفيديو باستخدام Master Download"
+  },
+  "kindFile": {
+    "message": "ملف"
+  },
+  "loading": {
+    "message": "جارٍ التحميل…"
+  },
+  "sending": {
+    "message": "جارٍ الإرسال…"
+  },
+  "sentOk": {
+    "message": "أُرسل إلى Master Download"
+  },
+  "noMedia": {
+    "message": "لم يُكتشف فيديو أو صوت قابل للتنزيل في هذه الصفحة. ابدأ التشغيل ثم حاول مجددًا."
+  },
+  "noLinks": {
+    "message": "لم يُعثر على روابط للتنزيل في الصفحة."
+  },
+  "errBlocked": {
+    "message": "هذا المحتوى محمي أو أن شروط الموقع لا تسمح بالتنزيل؛ لن يقوم Master Download بتنزيله."
+  },
+  "errAppUnavailable": {
+    "message": "لا يستجيب Master Download. تأكد من تثبيت التطبيق ومن تسجيل الدخول."
+  },
+  "errGeneric": {
+    "message": "رفض Master Download الطلب ($CODE$).",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "تُرك التنزيل للمتصفح"
+  },
+  "notifyFallbackBody": {
+    "message": "يُنزَّل الملف باستخدام أداة التنزيل الخاصة بالمتصفح."
+  },
+  "popupMediaTitle": {
+    "message": "الوسائط المكتشفة في هذا التبويب"
+  },
+  "popupAllLinks": {
+    "message": "تنزيل جميع الروابط"
+  },
+  "statusConnected": {
+    "message": "Master Download متصل"
+  },
+  "optionsTitle": {
+    "message": "الخيارات"
+  },
+  "optEnabled": {
+    "message": "التقاط تنزيلات المتصفح باستخدام Master Download"
+  },
+  "optEnabledHint": {
+    "message": "اضغط Alt أثناء النقر ليقوم المتصفح بالتنزيل؛ واضغط Ctrl لفرض استخدام Master Download."
+  },
+  "optExts": {
+    "message": "امتدادات الملفات المراد التقاطها"
+  },
+  "optExtsHint": {
+    "message": "افصل بينها بمسافات أو فواصل (مثل zip exe mp4)."
+  },
+  "optMinSize": {
+    "message": "الحد الأدنى لحجم الملف (كيلوبايت)"
+  },
+  "optSkipSites": {
+    "message": "المواقع المستثناة"
+  },
+  "optSkipSitesHint": {
+    "message": "موقع واحد في كل سطر؛ يمكن استخدام * كحرف بدل (مثل ‎*.example.com)."
+  },
+  "optVideoButton": {
+    "message": "إظهار زر «تنزيل» على مقاطع الفيديو"
+  },
+  "optVideoButtonHint": {
+    "message": "لا يظهر الزر في المشغلات المحمية (DRM) ولا في المواقع التي تحظر شروطها التنزيل."
+  },
+  "optSave": {
+    "message": "حفظ"
+  },
+  "optReset": {
+    "message": "الإعدادات الافتراضية"
+  },
+  "optTest": {
+    "message": "اختبار الاتصال"
+  },
+  "optSaved": {
+    "message": "تم الحفظ"
+  }
+}

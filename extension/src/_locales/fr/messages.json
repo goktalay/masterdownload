@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "Téléchargez fichiers et vidéos de la page avec Master Download — rapide et avec reprise."
+  },
+  "menuLink": {
+    "message": "Télécharger avec Master Download"
+  },
+  "menuAll": {
+    "message": "Télécharger tous les liens avec Master Download"
+  },
+  "menuMedia": {
+    "message": "Télécharger cette vidéo/ce son avec Master Download"
+  },
+  "btnDownload": {
+    "message": "Télécharger"
+  },
+  "btnDownloadTitle": {
+    "message": "Télécharger cette vidéo avec Master Download"
+  },
+  "kindFile": {
+    "message": "Fichier"
+  },
+  "loading": {
+    "message": "Chargement…"
+  },
+  "sending": {
+    "message": "Envoi…"
+  },
+  "sentOk": {
+    "message": "Envoyé à Master Download"
+  },
+  "noMedia": {
+    "message": "Aucune vidéo ni aucun son téléchargeable détecté sur cette page. Lancez la lecture et réessayez."
+  },
+  "noLinks": {
+    "message": "Aucun lien à télécharger trouvé sur la page."
+  },
+  "errBlocked": {
+    "message": "Ce contenu est protégé ou les conditions du site interdisent le téléchargement ; Master Download ne le téléchargera pas."
+  },
+  "errAppUnavailable": {
+    "message": "Master Download ne répond pas. Vérifiez que l'application est installée et que vous êtes connecté."
+  },
+  "errGeneric": {
+    "message": "Master Download a refusé la demande ($CODE$).",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "Téléchargement laissé au navigateur"
+  },
+  "notifyFallbackBody": {
+    "message": "Le fichier est téléchargé par le gestionnaire du navigateur."
+  },
+  "popupMediaTitle": {
+    "message": "Médias détectés dans cet onglet"
+  },
+  "popupAllLinks": {
+    "message": "Télécharger tous les liens"
+  },
+  "statusConnected": {
+    "message": "Master Download connecté"
+  },
+  "optionsTitle": {
+    "message": "Options"
+  },
+  "optEnabled": {
+    "message": "Intercepter les téléchargements du navigateur avec Master Download"
+  },
+  "optEnabledHint": {
+    "message": "Maintenez Alt en cliquant pour laisser le navigateur télécharger ; Ctrl pour forcer Master Download."
+  },
+  "optExts": {
+    "message": "Extensions de fichiers à intercepter"
+  },
+  "optExtsHint": {
+    "message": "Séparez par des espaces ou des virgules (ex. zip exe mp4)."
+  },
+  "optMinSize": {
+    "message": "Taille minimale du fichier (Ko)"
+  },
+  "optSkipSites": {
+    "message": "Sites exclus"
+  },
+  "optSkipSitesHint": {
+    "message": "Un site par ligne ; le joker * est autorisé (ex. *.example.com)."
+  },
+  "optVideoButton": {
+    "message": "Afficher le bouton « Télécharger » sur les vidéos"
+  },
+  "optVideoButtonHint": {
+    "message": "Le bouton n'est pas affiché sur les lecteurs protégés (DRM) ni sur les sites qui interdisent le téléchargement."
+  },
+  "optSave": {
+    "message": "Enregistrer"
+  },
+  "optReset": {
+    "message": "Valeurs par défaut"
+  },
+  "optTest": {
+    "message": "Tester la connexion"
+  },
+  "optSaved": {
+    "message": "Enregistré"
+  }
+}

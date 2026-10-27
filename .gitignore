@@ -3,3 +3,5 @@ dist/
 .mt-notes.*
 .mt-parts.*
 response.json
+extension/dist/
+extension/key.pem
