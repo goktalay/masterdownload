@@ -11,7 +11,7 @@
 //   /digest/<ad>?size=N          Digest kimlik doğrulama (u:p)
 //   /gone                        404
 //   /disposition?size=N          Content-Disposition: attachment; filename*=UTF-8''...
-//   /static/<yol>                setStatic ile verilen metin/ikili içerik
+//   /static/<yol>                setStatic ile verilen metin/ikili içerik (/robots.txt → setStatic('/robots.txt'))
 
 const http = require('http');
 const crypto = require('crypto');
@@ -70,8 +70,8 @@ function startServer() {
     const p = u.pathname;
     stats.byPath[p] = (stats.byPath[p] || 0) + 1;
     const size = Number(u.searchParams.get('size') || 1024);
-    if (p.startsWith('/static/')) {
-      const s = statics.get(p.slice(7));
+    if (p.startsWith('/static/') || p === '/robots.txt') {
+      const s = statics.get(p === '/robots.txt' ? p : p.slice(7));
       if (!s) { res.writeHead(404); return res.end(); }
       res.writeHead(200, { 'Content-Type': s.type || 'application/octet-stream', 'Content-Length': Buffer.byteLength(s.body) });
       return res.end(s.body);
