@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "Download files and on-page videos with Master Download — fast and resumable."
+  },
+  "menuLink": {
+    "message": "Download with Master Download"
+  },
+  "menuAll": {
+    "message": "Download all links with Master Download"
+  },
+  "menuMedia": {
+    "message": "Download this video/audio with Master Download"
+  },
+  "btnDownload": {
+    "message": "Download"
+  },
+  "btnDownloadTitle": {
+    "message": "Download this video with Master Download"
+  },
+  "kindFile": {
+    "message": "File"
+  },
+  "loading": {
+    "message": "Loading…"
+  },
+  "sending": {
+    "message": "Sending…"
+  },
+  "sentOk": {
+    "message": "Sent to Master Download"
+  },
+  "noMedia": {
+    "message": "No downloadable video or audio detected on this page. Start playback and try again."
+  },
+  "noLinks": {
+    "message": "No links to download were found on the page."
+  },
+  "errBlocked": {
+    "message": "This content is protected or the site's terms do not allow downloading; Master Download will not download it."
+  },
+  "errAppUnavailable": {
+    "message": "Master Download is not responding. Make sure the app is installed and you are signed in."
+  },
+  "errGeneric": {
+    "message": "Master Download rejected the request ($CODE$).",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "Download left to the browser"
+  },
+  "notifyFallbackBody": {
+    "message": "The file is being downloaded by the browser's own downloader."
+  },
+  "popupMediaTitle": {
+    "message": "Media detected in this tab"
+  },
+  "popupAllLinks": {
+    "message": "Download all links"
+  },
+  "statusConnected": {
+    "message": "Master Download connected"
+  },
+  "optionsTitle": {
+    "message": "Options"
+  },
+  "optEnabled": {
+    "message": "Capture browser downloads with Master Download"
+  },
+  "optEnabledHint": {
+    "message": "Hold Alt while clicking to let the browser download; hold Ctrl to force Master Download."
+  },
+  "optExts": {
+    "message": "File extensions to capture"
+  },
+  "optExtsHint": {
+    "message": "Separate with spaces or commas (e.g. zip exe mp4)."
+  },
+  "optMinSize": {
+    "message": "Minimum file size (KB)"
+  },
+  "optSkipSites": {
+    "message": "Excluded sites"
+  },
+  "optSkipSitesHint": {
+    "message": "One site per line; * wildcard allowed (e.g. *.example.com)."
+  },
+  "optVideoButton": {
+    "message": "Show the “Download” button on videos"
+  },
+  "optVideoButtonHint": {
+    "message": "The button is not shown on protected (DRM) players or on sites whose terms forbid downloading."
+  },
+  "optSave": {
+    "message": "Save"
+  },
+  "optReset": {
+    "message": "Defaults"
+  },
+  "optTest": {
+    "message": "Test connection"
+  },
+  "optSaved": {
+    "message": "Saved"
+  }
+}

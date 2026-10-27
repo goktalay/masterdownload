@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "Dateien und Videos der Seite mit Master Download herunterladen – schnell und fortsetzbar."
+  },
+  "menuLink": {
+    "message": "Mit Master Download herunterladen"
+  },
+  "menuAll": {
+    "message": "Alle Links mit Master Download herunterladen"
+  },
+  "menuMedia": {
+    "message": "Dieses Video/Audio mit Master Download herunterladen"
+  },
+  "btnDownload": {
+    "message": "Herunterladen"
+  },
+  "btnDownloadTitle": {
+    "message": "Dieses Video mit Master Download herunterladen"
+  },
+  "kindFile": {
+    "message": "Datei"
+  },
+  "loading": {
+    "message": "Wird geladen…"
+  },
+  "sending": {
+    "message": "Wird gesendet…"
+  },
+  "sentOk": {
+    "message": "An Master Download gesendet"
+  },
+  "noMedia": {
+    "message": "Auf dieser Seite wurde kein herunterladbares Video oder Audio erkannt. Wiedergabe starten und erneut versuchen."
+  },
+  "noLinks": {
+    "message": "Auf der Seite wurden keine Links zum Herunterladen gefunden."
+  },
+  "errBlocked": {
+    "message": "Dieser Inhalt ist geschützt oder die Nutzungsbedingungen der Website verbieten das Herunterladen; Master Download lädt ihn nicht herunter."
+  },
+  "errAppUnavailable": {
+    "message": "Master Download antwortet nicht. Stellen Sie sicher, dass die App installiert ist und Sie angemeldet sind."
+  },
+  "errGeneric": {
+    "message": "Master Download hat die Anfrage abgelehnt ($CODE$).",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "Download dem Browser überlassen"
+  },
+  "notifyFallbackBody": {
+    "message": "Die Datei wird vom Browser selbst heruntergeladen."
+  },
+  "popupMediaTitle": {
+    "message": "In diesem Tab erkannte Medien"
+  },
+  "popupAllLinks": {
+    "message": "Alle Links herunterladen"
+  },
+  "statusConnected": {
+    "message": "Master Download verbunden"
+  },
+  "optionsTitle": {
+    "message": "Optionen"
+  },
+  "optEnabled": {
+    "message": "Browser-Downloads mit Master Download abfangen"
+  },
+  "optEnabledHint": {
+    "message": "Beim Klicken Alt halten, um im Browser herunterzuladen; Strg halten, um Master Download zu erzwingen."
+  },
+  "optExts": {
+    "message": "Abzufangende Dateiendungen"
+  },
+  "optExtsHint": {
+    "message": "Durch Leerzeichen oder Kommas trennen (z. B. zip exe mp4)."
+  },
+  "optMinSize": {
+    "message": "Minimale Dateigröße (KB)"
+  },
+  "optSkipSites": {
+    "message": "Ausgenommene Websites"
+  },
+  "optSkipSitesHint": {
+    "message": "Eine Website pro Zeile; Platzhalter * erlaubt (z. B. *.example.com)."
+  },
+  "optVideoButton": {
+    "message": "„Herunterladen“-Schaltfläche auf Videos anzeigen"
+  },
+  "optVideoButtonHint": {
+    "message": "Die Schaltfläche erscheint nicht bei geschützten (DRM-)Playern und auf Websites, die das Herunterladen verbieten."
+  },
+  "optSave": {
+    "message": "Speichern"
+  },
+  "optReset": {
+    "message": "Standardwerte"
+  },
+  "optTest": {
+    "message": "Verbindung testen"
+  },
+  "optSaved": {
+    "message": "Gespeichert"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "extName": {
+    "message": "Master Download"
+  },
+  "extDesc": {
+    "message": "İndirmeleri ve sayfadaki videoları Master Download ile hızlı, sürdürülebilir şekilde indirin."
+  },
+  "menuLink": {
+    "message": "Master Download ile indir"
+  },
+  "menuAll": {
+    "message": "Tüm bağlantıları Master Download ile indir"
+  },
+  "menuMedia": {
+    "message": "Bu videoyu/sesi Master Download ile indir"
+  },
+  "btnDownload": {
+    "message": "İndir"
+  },
+  "btnDownloadTitle": {
+    "message": "Bu videoyu Master Download ile indir"
+  },
+  "kindFile": {
+    "message": "Dosya"
+  },
+  "loading": {
+    "message": "Yükleniyor…"
+  },
+  "sending": {
+    "message": "Gönderiliyor…"
+  },
+  "sentOk": {
+    "message": "Master Download'a gönderildi"
+  },
+  "noMedia": {
+    "message": "Bu sayfada indirilebilir video ya da ses algılanmadı. Oynatmayı başlatıp yeniden deneyin."
+  },
+  "noLinks": {
+    "message": "Sayfada indirilecek bağlantı bulunamadı."
+  },
+  "errBlocked": {
+    "message": "Bu içerik korumalı ya da sitenin koşulları indirmeye izin vermiyor; Master Download bunu indirmez."
+  },
+  "errAppUnavailable": {
+    "message": "Master Download yanıt vermiyor. Uygulamanın kurulu olduğundan ve oturum açtığınızdan emin olun."
+  },
+  "errGeneric": {
+    "message": "Master Download isteği reddetti ($CODE$).",
+    "placeholders": {
+      "code": {
+        "content": "$1",
+        "example": "bad_request"
+      }
+    }
+  },
+  "notifyFallbackTitle": {
+    "message": "İndirme tarayıcıya bırakıldı"
+  },
+  "notifyFallbackBody": {
+    "message": "Dosya tarayıcının kendi indiricisiyle indiriliyor."
+  },
+  "popupMediaTitle": {
+    "message": "Bu sekmede algılanan medya"
+  },
+  "popupAllLinks": {
+    "message": "Tüm bağlantıları indir"
+  },
+  "statusConnected": {
+    "message": "Master Download bağlı"
+  },
+  "optionsTitle": {
+    "message": "Seçenekler"
+  },
+  "optEnabled": {
+    "message": "Tarayıcı indirmelerini Master Download ile yakala"
+  },
+  "optEnabledHint": {
+    "message": "Tıklarken Alt basılıysa indirme tarayıcıda kalır; Ctrl basılıysa Master Download zorla yakalar."
+  },
+  "optExts": {
+    "message": "Yakalanacak dosya uzantıları"
+  },
+  "optExtsHint": {
+    "message": "Boşluk ya da virgülle ayırın (ör. zip exe mp4)."
+  },
+  "optMinSize": {
+    "message": "En küçük dosya boyutu (KB)"
+  },
+  "optSkipSites": {
+    "message": "İstisna siteler"
+  },
+  "optSkipSitesHint": {
+    "message": "Satır başına bir site; * joker kullanılabilir (ör. *.example.com)."
+  },
+  "optVideoButton": {
+    "message": "Videoların üzerinde “İndir” düğmesini göster"
+  },
+  "optVideoButtonHint": {
+    "message": "Korumalı (DRM) oynatıcılarda ve indirmeyi yasaklayan sitelerde düğme gösterilmez."
+  },
+  "optSave": {
+    "message": "Kaydet"
+  },
+  "optReset": {
+    "message": "Varsayılanlar"
+  },
+  "optTest": {
+    "message": "Bağlantıyı sına"
+  },
+  "optSaved": {
+    "message": "Kaydedildi"
+  }
+}
