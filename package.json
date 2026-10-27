@@ -1,0 +1,17 @@
+{
+  "name": "master-download",
+  "productName": "Master Download",
+  "version": "0.1.0",
+  "description": "Çok bağlantılı, sürdürülebilir indirme yöneticisi; tarayıcı eklentili (Mastertool ailesi)",
+  "main": "src/main.js",
+  "author": "Mastertool",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/",
+    "icon": "node scripts/make-icon.js",
+    "screenshots": "node scripts/screenshots.js",
+    "dist": "electron-builder --win",
+    "dist:portable": "electron-builder --win portable"
+  }
+}
